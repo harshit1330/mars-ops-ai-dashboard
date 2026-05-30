@@ -1,0 +1,540 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-soft: #f0f3f5;
+  --ink: #111416;
+  --muted: #5f6870;
+  --line: #d9dfe4;
+  --brand: #c2185b;
+  --brand-dark: #8f1245;
+  --accent: #10a37f;
+  --warn: #c47a16;
+  --danger: #c0392b;
+  --shadow: 0 20px 55px rgba(18, 23, 29, 0.08);
+  --radius: 8px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.app-header {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  min-height: 74px;
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(14px);
+}
+
+.brand {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.75rem;
+}
+
+.brand-mark {
+  align-items: center;
+  background: var(--ink);
+  border-radius: var(--radius);
+  color: #fff;
+  display: inline-flex;
+  font-weight: 900;
+  height: 42px;
+  justify-content: center;
+  width: 42px;
+}
+
+.brand strong,
+.brand small {
+  display: block;
+}
+
+.brand small {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+nav a {
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  color: var(--brand);
+}
+
+main {
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 2rem;
+}
+
+.hero {
+  align-items: stretch;
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+  min-height: calc(100vh - 138px);
+}
+
+.hero-copy,
+.ops-panel,
+.workspace,
+.metrics article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 6vw, 4rem);
+}
+
+.eyebrow {
+  color: var(--brand);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.65rem;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 7vw, 5.6rem);
+  letter-spacing: 0;
+  line-height: 0.98;
+  margin-bottom: 1rem;
+  max-width: 920px;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 3.1rem);
+  letter-spacing: 0;
+  line-height: 1.08;
+  margin-bottom: 0.7rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+.hero-copy p:not(.eyebrow),
+.section-copy {
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 760px;
+}
+
+.hero-actions,
+.draft-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+.button {
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: 900;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.7rem 1rem;
+}
+
+.button:hover,
+.button:focus-visible {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+.button.primary {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+}
+
+.button.full {
+  width: 100%;
+}
+
+.ops-panel,
+.automation-card,
+.report-card,
+.draft-output {
+  padding: 1.25rem;
+}
+
+.ops-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.panel-top,
+.section-head {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.panel-top span,
+.metrics span,
+dt {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.panel-top strong {
+  color: var(--brand);
+  font-size: 1.7rem;
+}
+
+.meter {
+  background: var(--surface-soft);
+  border-radius: 999px;
+  height: 14px;
+  margin: 2rem 0;
+  overflow: hidden;
+}
+
+.meter span {
+  background: linear-gradient(90deg, var(--brand), var(--accent));
+  display: block;
+  height: 100%;
+}
+
+.mini-grid,
+.metrics {
+  display: grid;
+  gap: 1rem;
+}
+
+.mini-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.mini-grid div {
+  background: var(--surface-soft);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.mini-grid strong,
+.mini-grid span {
+  display: block;
+}
+
+.mini-grid strong {
+  font-size: 1.8rem;
+}
+
+.mini-grid span {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.metrics {
+  grid-template-columns: repeat(4, 1fr);
+  margin: 1.2rem 0;
+}
+
+.metrics article {
+  padding: 1rem;
+}
+
+.metrics strong {
+  display: block;
+  font-size: 2rem;
+  line-height: 1;
+  margin: 0.55rem 0;
+}
+
+.metrics small {
+  color: var(--muted);
+}
+
+.workspace {
+  margin-top: 1.2rem;
+  padding: 1.25rem;
+}
+
+.section-head {
+  align-items: end;
+  margin-bottom: 1rem;
+}
+
+.search-box,
+.draft-controls label {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.search-box span,
+.draft-controls label {
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.search-box input,
+.draft-controls select,
+.draft-controls textarea,
+.draft-output textarea {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  min-height: 44px;
+  padding: 0.75rem;
+}
+
+.search-box.wide {
+  margin: 1rem 0;
+  max-width: 620px;
+}
+
+.workflow-layout,
+.split {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+}
+
+.workflow-list,
+.sop-results {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.workflow-item,
+.sop-card {
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.workflow-item:hover,
+.workflow-item:focus-visible,
+.workflow-item.active {
+  border-color: var(--brand);
+  outline: none;
+}
+
+.item-top {
+  align-items: start;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.badge {
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 900;
+  padding: 0.28rem 0.55rem;
+  white-space: nowrap;
+}
+
+.badge.high,
+.badge.risk {
+  background: #fbe8e6;
+  color: var(--danger);
+}
+
+.badge.medium {
+  background: #fff0d9;
+  color: var(--warn);
+}
+
+.badge.low,
+.badge.ready {
+  background: #def7ee;
+  color: #08775c;
+}
+
+.workflow-item p,
+.sop-card p,
+.automation-card p,
+.report-card li,
+.copy-note {
+  color: var(--muted);
+}
+
+.workflow-meta,
+.sop-meta {
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.86rem;
+  gap: 0.7rem;
+  margin-top: 0.75rem;
+}
+
+dl {
+  display: grid;
+  gap: 0.8rem;
+  margin: 1.2rem 0 0;
+}
+
+dt,
+dd {
+  margin: 0;
+}
+
+dd {
+  font-weight: 900;
+}
+
+.report-card ul {
+  display: grid;
+  gap: 0.7rem;
+  margin: 1rem 0;
+  padding-left: 1.1rem;
+}
+
+.draft-controls {
+  flex-direction: column;
+  max-width: 720px;
+}
+
+.draft-output textarea {
+  margin-top: 1rem;
+  resize: vertical;
+  width: 100%;
+}
+
+footer {
+  align-items: center;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin: 1rem auto 0;
+  max-width: 1180px;
+  padding: 1.5rem 2rem 2rem;
+}
+
+footer a {
+  color: var(--brand-dark);
+  font-weight: 900;
+}
+
+@media (max-width: 920px) {
+  .app-header,
+  .section-head,
+  footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .hero,
+  .workflow-layout,
+  .split,
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 540px) {
+  .app-header {
+    padding: 1rem;
+  }
+
+  nav {
+    gap: 0.7rem;
+  }
+
+  .hero-copy,
+  .workspace,
+  .ops-panel {
+    padding: 1rem;
+  }
+
+  .mini-grid,
+  .item-top {
+    grid-template-columns: 1fr;
+  }
+
+  .item-top {
+    flex-direction: column;
+  }
+
+  .hero-actions,
+  .button {
+    width: 100%;
+  }
+}

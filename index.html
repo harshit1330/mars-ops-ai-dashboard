@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="MARS OpsFlow is an internal web dashboard concept for workflow automation, SOP search, AI drafting, and business reporting."
+    />
+    <title>MARS OpsFlow | Internal Operations Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="#overview" aria-label="MARS OpsFlow dashboard home">
+        <span class="brand-mark">MO</span>
+        <span>
+          <strong>MARS OpsFlow</strong>
+          <small>Internal workflow command center</small>
+        </span>
+      </a>
+      <nav aria-label="Dashboard sections">
+        <a href="#overview">Overview</a>
+        <a href="#workflows">Workflows</a>
+        <a href="#knowledge">SOP Search</a>
+        <a href="#drafting">AI Drafting</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="overview">
+        <div class="hero-copy">
+          <p class="eyebrow">Cosmetics operations dashboard</p>
+          <h1>Automate repetitive work across inventory, support, reporting, and SOPs.</h1>
+          <p>
+            A portfolio-ready internal tool concept for MARS Cosmetics: workflow tracking,
+            AI-assisted SOP lookup, spreadsheet-style data checks, report generation, and
+            reusable drafting for business teams.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#workflows">Review Queue</a>
+            <a class="button" href="#drafting">Generate Draft</a>
+          </div>
+        </div>
+        <aside class="ops-panel" aria-label="Automation impact summary">
+          <div class="panel-top">
+            <span>Automation Impact</span>
+            <strong id="impactScore">74%</strong>
+          </div>
+          <div class="meter" aria-hidden="true">
+            <span style="width: 74%"></span>
+          </div>
+          <div class="mini-grid">
+            <div>
+              <strong id="hoursSaved">31h</strong>
+              <span>weekly effort saved</span>
+            </div>
+            <div>
+              <strong id="manualTasks">18</strong>
+              <span>manual tasks reduced</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="metrics" aria-label="Business metrics">
+        <article>
+          <span>Open workflow items</span>
+          <strong id="openItems">0</strong>
+          <small>Across inventory, customer, and reporting teams</small>
+        </article>
+        <article>
+          <span>SLA health</span>
+          <strong>91%</strong>
+          <small>Tasks under target response time</small>
+        </article>
+        <article>
+          <span>Data alerts</span>
+          <strong id="dataAlerts">0</strong>
+          <small>Potential spreadsheet/API mismatches</small>
+        </article>
+        <article>
+          <span>SOP matches</span>
+          <strong id="sopCount">0</strong>
+          <small>Searchable process documents</small>
+        </article>
+      </section>
+
+      <section class="workspace" id="workflows">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Workflow System</p>
+            <h2>Prioritized queue for manual business processes.</h2>
+          </div>
+          <label class="search-box">
+            <span>Filter</span>
+            <input id="workflowSearch" type="search" placeholder="Search task, owner, source..." />
+          </label>
+        </div>
+        <div class="workflow-layout">
+          <div class="workflow-list" id="workflowList" aria-live="polite"></div>
+          <aside class="automation-card">
+            <p class="eyebrow">Automation Opportunity</p>
+            <h3 id="automationTitle">Select a workflow</h3>
+            <p id="automationBody">
+              Choose a queue item to see the suggested API, spreadsheet, or AI automation.
+            </p>
+            <dl>
+              <div>
+                <dt>Integration</dt>
+                <dd id="automationIntegration">-</dd>
+              </div>
+              <div>
+                <dt>Expected saving</dt>
+                <dd id="automationSaving">-</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+
+      <section class="workspace split" id="knowledge">
+        <div>
+          <p class="eyebrow">SOP Assistance</p>
+          <h2>Search internal knowledge before asking another team.</h2>
+          <p class="section-copy">
+            The search uses process title, department, keywords, and suggested actions to
+            mimic how an AI-assisted SOP helper can reduce repeated questions.
+          </p>
+          <label class="search-box wide">
+            <span>SOP query</span>
+            <input id="sopSearch" type="search" placeholder="Try: return, shade, campaign, stock" />
+          </label>
+          <div class="sop-results" id="sopResults" aria-live="polite"></div>
+        </div>
+        <aside class="report-card">
+          <p class="eyebrow">Reporting</p>
+          <h3>Weekly summary</h3>
+          <ul id="reportList"></ul>
+          <button class="button full" id="copyReport" type="button">Copy Report</button>
+          <p class="copy-note" id="copyNote" role="status"></p>
+        </aside>
+      </section>
+
+      <section class="workspace split" id="drafting">
+        <div>
+          <p class="eyebrow">AI Drafting</p>
+          <h2>Generate clear first drafts for internal teams.</h2>
+          <div class="draft-controls">
+            <label>
+              Draft type
+              <select id="draftType">
+                <option value="vendor">Vendor follow-up</option>
+                <option value="support">Customer support escalation</option>
+                <option value="sop">SOP update note</option>
+              </select>
+            </label>
+            <label>
+              Context
+              <textarea id="draftContext" rows="5">Lip Crayon shade Nude Blush has repeated stock mismatches between warehouse sheet and marketplace listing.</textarea>
+            </label>
+            <button class="button primary" id="generateDraft" type="button">Generate Draft</button>
+          </div>
+        </div>
+        <article class="draft-output">
+          <div class="panel-top">
+            <span>Generated draft</span>
+            <strong>Editable</strong>
+          </div>
+          <textarea id="draftOutput" rows="15" aria-label="Generated draft output"></textarea>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <span>Built for an internal tools, automation, AI, API, database, and documentation internship brief.</span>
+      <a href="../index.html">Back to portfolio</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
